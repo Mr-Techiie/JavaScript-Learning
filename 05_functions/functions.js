@@ -290,7 +290,192 @@ greet(function() {
 // callback() executes it.
 
 
+function calculate(callback) {
+    console.log(10);
 
+    callback();
+
+    console.log(30);
+}
+
+calculate(function() {
+    console.log(20);
+});
+
+
+// What is an Arrow Function?
+
+// An arrow function is a shorter, modern syntax for writing functions in JavaScript.
+
+
+const greet = () => {
+    console.log("Hello");
+};
+
+greet();
+
+
+// Arrow Functions with Parameters
+
+const greeting = (message) => {     // can remove () as only one parameter.   
+    console.log(message);
+};
+
+greeting("Hello Bhai");
+
+
+// Implicit Return (Very Important)
+// This is one of the most useful features of arrow functions.
+
+
+const sum = (a, b) => {
+    return a + b;
+};
+
+console.log(sum(10, 20));
+
+
+// Now, because the function contains only one expression that we want to return, we can write:
+
+
+const add = (a, b) => a + b;
+
+console.log(add(30, 50));
+
+
+// Arrow Functions with Multiple Statements
+
+const calculate = (a, b) => {
+
+    const result = a + b;
+
+    console.log("calculation completed.");
+
+    return result;
+
+};
+
+console.log(calculate(24, 48));
+
+
+// Arrow Functions as Callbacks
+
+
+function calculation(callback){
+    console.log("Starting..");
+
+    callback();
+}
+
+calculation( () => {
+    console.log("Completed..");
+    });
+    
+
+
+// IIFE — Immediately Invoked Function Expression
+
+// IIFE is a function that is defined and executed immediately, without needing to call it separately later.
+
+
+(function(){
+    console.log("Hi, How are you?");
+}) ();
+
+
+// IIFE with Parameters
+
+(function(name){
+    console.log("Hello " + name);
+}) ("Gurii");
+
+
+// parentheses don't convert the function itself; they make JavaScript parse it as a function expression rather than a function declaration.
+
+
+// -----------  Call Stack.  -----------
+
+// Call Stack is a data structure that JavaScript uses to keep track of function execution.
+
+// It follows LIFO (Last In, First Out).
+
+
+function first(){
+
+    console.log("First");
+
+    second();
+}
+
+function second(){
+
+    console.log("Second");
+
+    third();
+}
+
+function third(){
+
+    console.log("Third");
+}
+
+first();
+
+
+
+
+function A() {
+    console.log("A");
+
+    B();
+
+    console.log("D");
+}
+
+function B() {
+    console.log("B");
+
+    C();
+
+    console.log("E");
+}
+
+function C() {
+    console.log("C");
+}
+
+A();
+
+
+// When a function calls another function, the calling function pauses. Once the called function finishes, execution resumes exactly where it paused.
+
+
+// --------- Recursion ---------------
+
+
+function count(n){
+    if(n === 0) return;
+
+    count(n-1);
+    console.log(n);
+}
+
+count(5);
+
+
+function test(n) {
+    if (n === 0) {
+        return;
+    }
+
+    console.log(n);
+
+    test(n - 1);
+
+    console.log("Done", n);
+}
+
+test(3);
 
 
 
@@ -305,6 +490,41 @@ greet(function() {
 
 
 */
+
+
+
+
+function greet(name){
+    return "Hello " + name;
+}
+
+console.log(greet("Guri"));
+console.log(greet("Guri"));
+console.log(greet("Guri"));
+
+
+// ----- Higher order function
+
+function getCamera(camera) {
+    camera();
+}
+
+getCamera(function() {
+    console.log("Sony");
+});
+
+
+// getCamera() is a Higher-Order Function.
+// The anonymous function passed to it is a Callback Function.
+
+
+
+
+
+
+
+
+
 
 
 
